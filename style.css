@@ -1,0 +1,284 @@
+
+:root {
+    --pink-neon: #D34B9B;
+    --blue-cyan: #36C9E8;
+    --green-neon: #36A879;
+    --purple-dark: #241333;
+    --purple-bg: #10091B;
+    --yellow-sun: #D9C6A5;
+
+    --font-retro: 'VT323', monospace;
+    --font-pixel: 'Press Start 2P', cursive;
+
+    --text-color: #e6d8f5;
+    --text-muted: #D9C6A5;
+    --card-bg: rgba(36, 19, 51, 0.72);
+    --border-color: rgba(211, 75, 155, 0.35);
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+
+    background: var(--purple-bg);
+    color: var(--text-color);
+
+    font-family: var(--font-retro);
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+/* FUNDO */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(211, 75, 155, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(54, 201, 232, 0.10),
+            transparent 40%
+        ),
+        linear-gradient(
+            180deg,
+            var(--purple-bg),
+            var(--purple-dark)
+        );
+}
+
+/* LINHAS RETRÔ */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 3px,
+        rgba(0, 0, 0, 0.12) 4px
+    );
+}
+
+/* TÍTULO */
+
+h1 {
+    margin: 20px auto 35px;
+
+    color: var(--pink-neon);
+
+    font-family: var(--font-pixel);
+    font-size: clamp(1.1rem, 4vw, 2rem);
+    line-height: 1.8;
+    text-align: center;
+
+    text-shadow: 0 0 12px rgba(211, 75, 155, 0.35);
+}
+
+/* FORMULÁRIO */
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 25px;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
+    box-shadow: 0 0 15px rgba(211, 75, 155, 0.08);
+}
+
+/* CAMPOS */
+
+input {
+    flex: 1;
+    min-width: 180px;
+
+    padding: 13px 15px;
+
+    background: rgba(16, 9, 27, 0.85);
+    color: var(--text-color);
+
+    border: 1px solid rgba(54, 201, 232, 0.35);
+    border-radius: 5px;
+
+    font-family: var(--font-retro);
+    font-size: 22px;
+
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+input:focus {
+    border-color: var(--pink-neon);
+    box-shadow: 0 0 12px rgba(211, 75, 155, 0.2);
+}
+
+/* BOTÃO */
+
+button {
+    padding: 13px 20px;
+
+    background: rgba(211, 75, 155, 0.08);
+    color: var(--pink-neon);
+
+    border: 2px solid var(--pink-neon);
+    border-radius: 5px;
+
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: var(--pink-neon);
+    color: var(--purple-bg);
+
+    box-shadow: 0 0 15px rgba(211, 75, 155, 0.3);
+    transform: translateY(-3px);
+}
+
+/* TABELA */
+
+table {
+    width: 100%;
+    max-width: 850px;
+
+    margin: 40px auto;
+
+    border-collapse: collapse;
+
+    background: rgba(36, 19, 51, 0.72);
+
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* CABEÇALHO */
+
+thead {
+    background: rgba(211, 75, 155, 0.12);
+    color: var(--pink-neon);
+}
+
+th {
+    padding: 17px;
+
+    border-bottom: 2px solid var(--pink-neon);
+
+    font-family: var(--font-pixel);
+    font-size: 0.65rem;
+    text-align: left;
+}
+
+/* CONTEÚDO */
+
+td {
+    padding: 17px;
+
+    color: var(--text-color);
+
+    border-bottom: 1px solid rgba(54, 201, 232, 0.15);
+
+    font-size: 22px;
+}
+
+/* EFEITO NAS LINHAS */
+
+tbody tr {
+    transition: 0.3s ease;
+}
+
+tbody tr:hover {
+    background: rgba(54, 201, 232, 0.08);
+}
+
+tbody tr:hover td {
+    color: var(--blue-cyan);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* POSIÇÃO */
+
+td:first-child {
+    color: var(--green-neon);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 12px;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    form {
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    input,
+    button {
+        width: 100%;
+    }
+
+    table {
+        font-size: 15px;
+    }
+
+    th {
+        font-size: 0.5rem;
+        padding: 12px 7px;
+    }
+
+    td {
+        padding: 12px 7px;
+        font-size: 18px;
+    }
+}

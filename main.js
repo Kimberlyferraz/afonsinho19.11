@@ -1,39 +1,37 @@
-const alunos = [
+const series = [
     {
-        nome:"teste",
-        curso:"ADS"
+        nome: "The Chosen",
+        temporada: "5"
     },
     {
-        nome:"teste dois",
-        curso:"ENG"
+        nome: "Friends",
+        temporada: "3"
     },
     {
-        nome:"teste três",
-        curso:"ENG"
+        nome: "Stranger Things",
+        temporada: "4"
     }
 ]
 
 const formulario = document.getElementById("formAluno")
 const campoNome = document.getElementById("nome")
-const campoCurso = document.getElementById("curso")
+const campoTemporada = document.getElementById("temporada")
 const corpoTabela = document.getElementById("corpoTabela")
 
 function exibir(){
     corpoTabela.innerHTML = "";
 
-    for (let posicao = 0; posicao < alunos.length; posicao++){
+    for (let posicao = 0; posicao < series.length; posicao++){
 
-        const aluno = alunos[posicao]
+        const serie = series[posicao]
 
         corpoTabela.innerHTML += `
             <tr>
                 <td>${posicao}</td>
-                <td>${aluno.nome}</td>
-                <td>${aluno.curso}</td>
+                <td>${serie.nome}</td>
+                <td>${serie.temporada}</td>
             </tr>
-       
         `
-       
     }
 }
 
@@ -42,13 +40,13 @@ exibir();
 formulario.addEventListener("submit", function(evento){
     evento.preventDefault();
 
-    const aluno = {
+    const serie = {
         nome: campoNome.value,
-        curso: campoCurso.value
+        temporada: campoTemporada.value
     }
 
-    alunos.push(aluno)
+    series.push(serie)
 
     exibir()
 
-} )
+})
